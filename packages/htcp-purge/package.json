@@ -1,0 +1,7 @@
+{
+    "dependencies": {
+        "bluebird": "*",
+        "hipack": "*",
+        "ipaddr.js": "*"
+    }
+}
