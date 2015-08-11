@@ -1,7 +1,19 @@
 {
+    "name": "htcp-purge",
+    "description": "Module to perform HTTP cache purging via HTCP",
+    "version": "0.9.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kartotherian/htcp-purge.git"
+    },
+    "author": "Max Semenik <maxsem.wiki@gmail.com>",
+    "license": "Apache 2.0",
+    "bugs": {
+        "url": "https://github.com/kartotherian/htcp-purge/issues"
+    },
     "dependencies": {
-        "bluebird": "*",
-        "hipack": "*",
-        "ipaddr.js": "*"
+        "bluebird": "2.9.34",
+        "hipack": "1.0.4",
+        "ipaddr.js": "1.0.1"
     }
 }
