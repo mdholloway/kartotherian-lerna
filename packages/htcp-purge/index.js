@@ -1,8 +1,17 @@
 var dgram = require('dgram');
 var ipaddr = require('ipaddr.js');
-var Promise = require('bluebird');
+var BBPromise = require('bluebird');
 var pack = require('hipack');
 
+BBPromise.promisifyAll(dgram.Socket.prototype);
+
+/**
+ * HtcpPurge constructor
+ *
+ * @param {string} host Destination IP address
+ * @param {int} port Destination port
+ * @param {object} options:
+ */
 function HtcpPurge(host, port, options) {
     this.host = host;
     this.port = port;
@@ -12,39 +21,47 @@ function HtcpPurge(host, port, options) {
     this.multicastTTL = options.multicastTTL || 1;
     this.urlPrefix = options.urlPrefix || false;
     this.sequence = 0;
-    this.socket = null;
-
-    this.open();
 }
 
-HtcpPurge.prototype.open = function (first_argument) {
-    var addr = ipaddr.parse(this.host);
+/**
+ * Creates an underlying socket and prepares it for multicasts
+ * @return {Promise}
+ */
+HtcpPurge.prototype.open = function() {
+    var addr = ipaddr.parse(this.host),
+        self = this;
 
     this.socket = dgram.createSocket(addr.kind() === 'ipv6'? 'udp6' : 'udp4');
-    this.socket.setMulticastLoopback(0);
-    if (this.multicastTTL !== 1) {
-        this.socket.setMulticastTTL(this.multicastTTL);
-    }
-};
-
-HtcpPurge.prototype.purge = function(url) {
-    var buf = this.buildPacket(url),
-        self = this; // Fuck you, JS
-
-    return new Promise(function(resolve, reject) {
-        self.socket.send(buf, 0, buf.length, self.port, self.host, function(err) {
-            if (err) {
-                reject(err);
-            } else {
-                resolve();
-            }
-        });
+    return this.socket.bindAsync({}).then(function() {
+        self.socket.setMulticastLoopback(0);
+        if (self.multicastTTL !== 1) {
+            self.socket.setMulticastTTL(multicastTTL);
+        }
     });
 };
 
-HtcpPurge.prototype.buildPacket = function (url) {
+
+/**
+ * Performs a purge
+ *
+ * @param {string} url URL to be purged
+ * @return {Promise}
+ */
+HtcpPurge.prototype.purge = function(url) {
+    var buf = this._buildPacket(url);
+
+    return this.socket.sendAsync(buf, 0, buf.length, this.port, this.host);
+};
+
+/**
+ * Builds a HTCP packet
+ *
+ * @param {string} url URL to purge
+ * @return {Buffer}
+ */
+HtcpPurge.prototype._buildPacket = function (url) {
     var res,
-        specifier = this.buildSpecifier(url),
+        specifier = this._buildSpecifier(url),
         htcpDataLen = 8 + 2 + specifier.length,
         htcpLen = 4 + htcpDataLen + 2;
 
@@ -70,7 +87,13 @@ HtcpPurge.prototype.buildPacket = function (url) {
     return res;
 };
 
-HtcpPurge.prototype.buildSpecifier = function (url) {
+/**
+ * Builds a HTCP packet specifier, see RFC 2756, chapter 3.2
+ *
+ * @param {string} url URL to purge
+ * @return {Buffer}
+ */
+HtcpPurge.prototype._buildSpecifier = function (url) {
     var http = 'HTTP/' + this.httpVersion;
 
     if (this.urlPrefix) {
