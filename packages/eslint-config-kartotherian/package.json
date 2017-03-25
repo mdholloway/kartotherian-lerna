@@ -1,0 +1,19 @@
+{
+  "name": "eslint-config-kartotherian",
+  "version": "0.0.1",
+  "description": "ESLint Kartotherian config",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "kartotherian/eslint-config-kartotherian",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "kartotherian"
+  ],
+  "author": "Yuri Astrakhan <YuriAstrakhan@gmail.com>",
+  "license": "MIT",
+  "bugs": "https://github.com/kartotherian/eslint-config-kartotherian/issues",
+  "homepage": "https://github.com/kartotherian/eslint-config-kartotherian#readme"
+}
