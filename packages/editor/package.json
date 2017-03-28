@@ -1,0 +1,23 @@
+{
+  "name": "@kartotherian/editor",
+  "version": "0.0.1",
+  "description": "Wraps Maputnik for Kartotherian use",
+  "main": "editor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "kartotherian/editor",
+  "keywords": [
+    "kartotherian"
+  ],
+  "author": "Yuri Astrakhan <YuriAstrakhan@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": "https://github.com/kartotherian/editor/issues",
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/kartotherian/editor",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
