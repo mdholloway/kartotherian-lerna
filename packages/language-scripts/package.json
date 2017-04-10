@@ -1,0 +1,26 @@
+{
+  "name": "language-scripts",
+  "version": "1.0.0",
+  "description": "Converts language code to script ID",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "init-cldr": "CLDR_COVERAGE=full npm install cldr-data",
+    "extract": "node scripts/extract.js"
+  },
+  "repository": "kartotherian/language-scripts",
+  "keywords": [
+    "language",
+    "cldr",
+    "script"
+  ],
+  "author": "Yuri Astrakhan <YuriAstrakhan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kartotherian/language-scripts/issues"
+  },
+  "homepage": "https://github.com/kartotherian/language-scripts#readme",
+  "devDependencies": {
+    "json-stringify-pretty-compact": "^1.0.3"
+  }
+}
