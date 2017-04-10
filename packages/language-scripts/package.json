@@ -1,6 +1,6 @@
 {
   "name": "language-scripts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Converts language code to script ID",
   "main": "index.js",
   "scripts": {
