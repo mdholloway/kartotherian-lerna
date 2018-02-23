@@ -1,0 +1,30 @@
+{
+  "rules": {
+    "indent": [
+      2,
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "camelcase": [
+      2,
+      {
+        "properties": "always"
+      }
+    ],
+    "max-len": [
+      2,
+      100
+    ],
+    "array-bracket-spacing": [
+      2,
+      "always"
+    ],
+    "no-else-return": 0,
+    "curly": [
+      2,
+      "all"
+    ]
+  }
+}
