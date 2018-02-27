@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-kartotherian",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ESLint Kartotherian config",
   "main": ".eslintrc.js",
   "scripts": {
