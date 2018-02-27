@@ -15,5 +15,9 @@
   "author": "Yuri Astrakhan <YuriAstrakhan@gmail.com>",
   "license": "MIT",
   "bugs": "https://github.com/kartotherian/eslint-config-kartotherian/issues",
-  "homepage": "https://github.com/kartotherian/eslint-config-kartotherian#readme"
+  "homepage": "https://github.com/kartotherian/eslint-config-kartotherian#readme",
+  "dependencies": {
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0"
+  },
 }
