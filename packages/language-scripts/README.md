@@ -37,5 +37,5 @@ git clone https://github.com/kartotherian/language-scripts.git
 cd language-scripts
 npm install
 npm run init-cldr
-npm run extracts
+npm run extract
 ```
