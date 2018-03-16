@@ -11,5 +11,17 @@ module.exports = {
 
     // Allow ForOfStatement
     'no-restricted-syntax': ['error', 'ForInStatement', 'LabeledStatement', 'WithStatement'],
+
+    // Dangling commas are not supported for functions in node before v8.x
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'never',
+      },
+    ],
   },
 };
