@@ -78,8 +78,8 @@ services:
       - "@kartotherian/overzoom"
       - "@kartotherian/postgres"
       - "@kartotherian/substantial"
-      - "@kartotherian/tilelive-vector"
       - "@mapbox/tilejson"
+      - "@mapbox/tilelive-vector"
 
       requestHandlers:
       - "@kartotherian/maki"

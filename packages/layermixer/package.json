@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "bluebird": "^3.5.0",
-    "@kartotherian/input-validator": "^0.0.6",
+    "@kartotherian/input-validator": "0.0.6",
     "underscore": "^1.8.3"
   }
 }

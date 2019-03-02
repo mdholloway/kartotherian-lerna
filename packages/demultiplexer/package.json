@@ -20,8 +20,8 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "underscore": "^1.8.3",
-    "quadtile-index": "^0.0.6",
-    "@kartotherian/err": "^0.0.4",
-    "@kartotherian/input-validator": "^0.0.6"
+    "quadtile-index": "0.0.6",
+    "@kartotherian/err": "0.0.4",
+    "@kartotherian/input-validator": "0.0.6"
   }
 }

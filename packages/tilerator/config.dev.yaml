@@ -76,16 +76,16 @@ services:
         osmdb-pswd: ''
 
       modules:
+      - tilelive-tmsource
       - tilelive-tmstyle
       - "@kartotherian/autogen"
+      - "@kartotherian/babel"
       - "@kartotherian/cassandra"
       - "@kartotherian/layermixer"
       - "@kartotherian/overzoom"
       - "@kartotherian/postgres"
       - "@kartotherian/substantial"
-      - "@kartotherian/tilelive-tmsource"
-      - "@kartotherian/tilelive-vector"
-      - "@kartotherian/babel"
+      - "@mapbox/tilelive-vector"
 
       # URI for the eventlogging service (optional)
       eventlogging_service_uri: http://localhost:8085/v1/events
